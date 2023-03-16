@@ -1,0 +1,23 @@
+---
+import { mainMenu } from "../data/mainMenu";
+---
+
+<header
+  class="p-8 bg-gradient-to-br from-teal-900 to-teal-800 text-white min-w-fit flex sm:flex-col gap-12"
+>
+  <div>
+    <p class="text-xl uppercase font-bold mb-2">CRM - IndexedDB</p>
+    <p class="font-semibold">Administra tus clientes</p>
+  </div>
+  <nav>
+    <ul class="flex sm:flex-col gap-4">
+      {
+        mainMenu.map((menu) => (
+          <li>
+            <a href={menu.path}>{menu.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,10 @@
+[
+  {
+    "title": "Clientes",
+    "path": "/"
+  },
+  {
+    "title": "Nuevo Cliente",
+    "path": "/nuevo-cliente"
+  }
+]
