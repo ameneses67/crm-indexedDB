@@ -1,4 +1,5 @@
 ---
+import Form from "../components/Form.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 
 const title = "Nuevo Cliente";
@@ -7,47 +8,5 @@ const description = "Creación de nuevos clientes";
 
 <MainLayout title={title} description={description}>
   <h1 class="text-2xl font-bold text-center mb-8">{title}</h1>
-  <form action="" class="flex flex-col gap-4 bg-white p-8 rounded">
-    <div class="flex flex-col gap-2">
-      <label for="nombre" class="font-semibold">Nombre:</label>
-      <input
-        class="rounded bg-gray-50"
-        type="text"
-        id="nombre"
-        placeholder="Nombre completo"
-      />
-    </div>
-    <div class="flex flex-col gap-2">
-      <label for="correo" class="font-semibold">Correo:</label>
-      <input
-        class="rounded bg-gray-50"
-        type="email"
-        id="correo"
-        placeholder="Correo electrónico"
-      />
-    </div>
-    <div class="flex flex-col gap-2">
-      <label for="telefono" class="font-semibold">Teléfono:</label>
-      <input
-        class="rounded bg-gray-50"
-        type="tel"
-        id="telefono"
-        placeholder="(555) 555-5555"
-      />
-    </div>
-    <div class="flex flex-col gap-2">
-      <label for="empresa" class="font-semibold">Empresa:</label>
-      <input
-        class="rounded bg-gray-50"
-        type="text"
-        id="empresa"
-        placeholder="Nombre de empresa"
-      />
-    </div>
-    <button
-      type="submit"
-      class="bg-teal-800 py-2 uppercase text-white font-semibold rounded mt-4 hover:bg-teal-900 tracking-wider"
-      >Crear cliente</button
-    >
-  </form>
+  <Form />
 </MainLayout>

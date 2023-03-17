@@ -3,14 +3,14 @@ import { mainMenu } from "../data/mainMenu";
 ---
 
 <header
-  class="p-8 bg-gradient-to-br from-teal-900 to-teal-800 text-white min-w-fit flex sm:flex-col gap-12"
+  class="px-2 py-8 xs:px-8 bg-gradient-to-br from-teal-900 to-teal-800 text-white min-w-fit flex flex-col xs:flex-row md:flex-col justify-between items-center md:items-start md:justify-start gap-4 md:gap-12"
 >
   <div>
-    <p class="text-xl uppercase font-bold mb-2">CRM - IndexedDB</p>
-    <p class="font-semibold">Administra tus clientes</p>
+    <p class="text-xl uppercase font-bold mb-0 md:mb-2">CRM - IndexedDB</p>
+    <p class="font-semibold hidden xs:block">Administra tus clientes</p>
   </div>
   <nav>
-    <ul class="flex sm:flex-col gap-4">
+    <ul class="flex md:flex-col gap-16 xs:gap-8">
       {
         mainMenu.map((menu) => (
           <li>
