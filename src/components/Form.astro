@@ -2,6 +2,7 @@
 ---
 
 <form
+  id="formulario"
   action=""
   class="flex flex-col gap-4 bg-white px-4 py-8 xs:px-8 rounded max-w-2xl mx-auto"
 >
@@ -11,6 +12,7 @@
       class="rounded bg-gray-50"
       type="text"
       id="nombre"
+      name="nombre"
       placeholder="Nombre completo"
     />
   </div>
@@ -20,6 +22,7 @@
       class="rounded bg-gray-50"
       type="email"
       id="correo"
+      name="correo"
       placeholder="Correo electrónico"
     />
   </div>
@@ -29,6 +32,7 @@
       class="rounded bg-gray-50"
       type="tel"
       id="telefono"
+      name="telefono"
       placeholder="(555) 555-5555"
     />
   </div>
@@ -38,6 +42,7 @@
       class="rounded bg-gray-50"
       type="text"
       id="empresa"
+      name="empresa"
       placeholder="Nombre de empresa"
     />
   </div>
@@ -47,3 +52,10 @@
     >Crear cliente</button
   >
 </form>
+
+<script>
+  import { validarCliente } from "../scripts/conectarBD";
+  import { formulario } from "../scripts/selectores";
+
+  formulario.addEventListener("submit", validarCliente);
+</script>
