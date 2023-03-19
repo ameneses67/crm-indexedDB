@@ -23,9 +23,11 @@ import { mainMenu } from "../data/mainMenu";
 </header>
 
 <script>
+  import { conectarDB } from "../scripts/conectarBD";
   import { crearDB } from "../scripts/crearBD";
 
   document.addEventListener("DOMContentLoaded", () => {
     crearDB();
+    conectarDB();
   });
 </script>

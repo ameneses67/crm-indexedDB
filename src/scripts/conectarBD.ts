@@ -1,11 +1,4 @@
-import {
-  alerta,
-  correo,
-  empresa,
-  formulario,
-  nombre,
-  telefono,
-} from "./selectores";
+import { correo, empresa, formulario, nombre, telefono } from "./selectores";
 
 let DB: IDBDatabase;
 
@@ -21,18 +14,42 @@ export function conectarDB() {
   };
 }
 
+interface ICliente {
+  nombre: string;
+  correo: string;
+  telefono: string;
+  empresa: string;
+  id: number;
+}
+
 export function validarCliente(e: Event) {
   e.preventDefault();
 
   // validar todos los inputs del formulario
-  if (nombre === "" || correo === "" || telefono === "" || empresa === "") {
+  if (
+    nombre.value === "" ||
+    correo.value === "" ||
+    telefono.value === "" ||
+    empresa.value === ""
+  ) {
     imprimirAlerta("Todos los campos son obligatorios", "error");
 
     return;
   }
+
+  // crear objeto con la información capturada en el formulario
+  const cliente: ICliente = {
+    nombre: nombre.value,
+    correo: correo.value,
+    telefono: telefono.value,
+    empresa: empresa.value,
+    id: Date.now(),
+  };
+
+  crearNuevoCliente(cliente);
 }
 
-function imprimirAlerta(mensaje: string, tipo: string) {
+function imprimirAlerta(mensaje: string, tipo?: string) {
   const alerta = document.querySelector(".alerta");
 
   if (!alerta) {
@@ -51,7 +68,7 @@ function imprimirAlerta(mensaje: string, tipo: string) {
         "py-2",
         "border",
         "bg-green-100",
-        "border-gree-400",
+        "border-green-400",
         "text-green-700"
       );
     }
@@ -64,4 +81,25 @@ function imprimirAlerta(mensaje: string, tipo: string) {
       divAlerta.remove();
     }, 3000);
   }
+}
+
+function crearNuevoCliente(cliente: ICliente) {
+  const transaction = DB.transaction(["crm"], "readwrite");
+
+  const objectStore = transaction.objectStore("crm");
+
+  objectStore.add(cliente);
+
+  transaction.onerror = function () {
+    imprimirAlerta("Hubo un error", "error");
+  };
+
+  transaction.oncomplete = function () {
+    imprimirAlerta("Cliente agregado correctamente");
+
+    // redireccionar al listado de los clientes
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 3000);
+  };
 }
