@@ -3,14 +3,14 @@ import { mainMenu } from "../data/mainMenu";
 ---
 
 <header
-  class="px-2 py-8 xs:px-8 bg-gradient-to-br from-teal-900 to-teal-800 text-white min-w-fit flex flex-col xs:flex-row md:flex-col justify-between items-center md:items-start md:justify-start gap-4 md:gap-12"
+  class="px-2 py-8 xs:px-8 bg-gradient-to-br from-teal-900 to-teal-800 text-white min-w-fit flex flex-col xs:flex-row lg:flex-col justify-between items-center lg:items-start lg:justify-start gap-4 lg:gap-12"
 >
   <div>
-    <p class="text-xl uppercase font-bold mb-0 md:mb-2">CRM - IndexedDB</p>
+    <p class="text-xl uppercase font-bold mb-0 lg:mb-2">CRM - IndexedDB</p>
     <p class="font-semibold hidden xs:block">Administra tus clientes</p>
   </div>
   <nav>
-    <ul class="flex md:flex-col gap-16 xs:gap-8">
+    <ul class="flex lg:flex-col gap-16 xs:gap-8">
       {
         mainMenu.map((menu) => (
           <li>
@@ -26,8 +26,15 @@ import { mainMenu } from "../data/mainMenu";
   import { conectarDB } from "../scripts/conectarBD";
   import { crearDB } from "../scripts/crearBD";
 
+  import { obtenerClientes } from "../scripts/mostrarClientes";
+
   document.addEventListener("DOMContentLoaded", () => {
     crearDB();
     conectarDB();
+
+    // mostrar clientes sólo si existe la base de datos crm
+    if (window.indexedDB.open("crm", 1)) {
+      obtenerClientes();
+    }
   });
 </script>
