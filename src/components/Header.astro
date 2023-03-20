@@ -23,18 +23,11 @@ import { mainMenu } from "../data/mainMenu";
 </header>
 
 <script>
-  import { conectarDB } from "../scripts/conectarBD";
+  // import conectarDB from "../scripts/conectarBD";
   import { crearDB } from "../scripts/crearBD";
-
-  import { obtenerClientes } from "../scripts/mostrarClientes";
 
   document.addEventListener("DOMContentLoaded", () => {
     crearDB();
-    conectarDB();
-
-    // mostrar clientes sólo si existe la base de datos crm
-    if (window.indexedDB.open("crm", 1)) {
-      obtenerClientes();
-    }
+    // conectarDB();
   });
 </script>

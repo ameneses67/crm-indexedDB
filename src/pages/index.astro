@@ -10,3 +10,12 @@ const description = "Listado de clientes";
   <h1 class="text-2xl font-bold text-center mb-8">{title}</h1>
   <Table />
 </MainLayout>
+
+<script>
+  import { obtenerClientes } from "../scripts/mostrarClientes";
+
+  // mostrar clientes sólo si existe la base de datos crm
+  if (window.indexedDB.open("crm", 1)) {
+    obtenerClientes();
+  }
+</script>

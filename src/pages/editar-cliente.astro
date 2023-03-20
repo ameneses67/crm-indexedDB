@@ -2,11 +2,14 @@
 import Form from "../components/Form.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 
-const title = "Nuevo Cliente";
-const description = "Creación de nuevos clientes";
+const title = "Editar Cliente";
+const description = "Edición de clientes existentes";
+const btnText = "Guardar cambios";
 ---
 
 <MainLayout title={title} description={description}>
   <h1 class="text-2xl font-bold text-center mb-8">{title}</h1>
-  <Form btnText="Crear cliente" />
+  <Form btnText={btnText} />
 </MainLayout>
+
+<script src="../scripts/editarCliente"></script>

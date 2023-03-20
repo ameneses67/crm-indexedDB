@@ -1,4 +1,9 @@
 ---
+interface Props {
+  btnText: string;
+}
+
+const { btnText } = Astro.props;
 ---
 
 <form
@@ -49,12 +54,12 @@
   <button
     type="submit"
     class="bg-teal-800 py-3 uppercase text-white font-semibold rounded mt-4 hover:bg-teal-900 tracking-wider"
-    >Crear cliente</button
+    >{btnText}</button
   >
 </form>
 
 <script>
-  import { validarCliente } from "../scripts/conectarBD";
+  import { validarCliente } from "../scripts/validarCliente";
   import { formulario } from "../scripts/selectores";
 
   formulario.addEventListener("submit", validarCliente);

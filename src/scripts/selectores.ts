@@ -13,3 +13,6 @@ export const empresa = document.querySelector("#empresa") as HTMLInputElement;
 export const listadoClientes = document.querySelector(
   "#listado-clientes"
 ) as HTMLTableElement;
+
+// buscar parámetros en la url
+export const parametrosURL = new URLSearchParams(window.location.search);
