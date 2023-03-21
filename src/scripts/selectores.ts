@@ -1,13 +1,21 @@
-// formulario completo
+// formulario
 export const formulario = document.querySelector(
   "#formulario"
 ) as HTMLFormElement;
 
 // valores capturados en cada campo del formulario
-export const nombre = document.querySelector("#nombre") as HTMLInputElement;
-export const correo = document.querySelector("#correo") as HTMLInputElement;
-export const telefono = document.querySelector("#telefono") as HTMLInputElement;
-export const empresa = document.querySelector("#empresa") as HTMLInputElement;
+export const nombreInput = document.querySelector(
+  "#nombre"
+) as HTMLInputElement;
+export const correoInput = document.querySelector(
+  "#correo"
+) as HTMLInputElement;
+export const telefonoInput = document.querySelector(
+  "#telefono"
+) as HTMLInputElement;
+export const empresaInput = document.querySelector(
+  "#empresa"
+) as HTMLInputElement;
 
 // tabla clientes
 export const listadoClientes = document.querySelector(

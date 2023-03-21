@@ -1,5 +1,14 @@
 import { imprimirAlerta } from "./imprimirAlerta";
 import type { ICliente } from "./validarCliente";
+import {
+  nombreInput,
+  correoInput,
+  telefonoInput,
+  empresaInput,
+  formulario,
+} from "./selectores";
+
+formulario.addEventListener("submit", validarCliente);
 
 let DB: IDBDatabase;
 
@@ -17,6 +26,34 @@ function conectarDB() {
   };
 }
 
+export function validarCliente(e: Event) {
+  e.preventDefault();
+
+  // validar todos los inputs del formulario
+  if (
+    nombreInput.value === "" ||
+    correoInput.value === "" ||
+    telefonoInput.value === "" ||
+    empresaInput.value === ""
+  ) {
+    imprimirAlerta("Todos los campos son obligatorios", "error");
+
+    return;
+  }
+
+  // crear objeto con la información capturada en el formulario
+  const cliente: ICliente = {
+    nombre: nombreInput.value,
+    correo: correoInput.value,
+    telefono: telefonoInput.value,
+    empresa: empresaInput.value,
+    id: Date.now(),
+  };
+
+  crearNuevoCliente(cliente);
+}
+
+// crearNuevoCliente(cliente);
 export function crearNuevoCliente(cliente: ICliente) {
   const transaction = DB.transaction(["crm"], "readwrite");
 
