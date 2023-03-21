@@ -18,7 +18,7 @@ function conectarDB() {
   const abrirConexion = window.indexedDB.open("crm", 1);
 
   abrirConexion.onerror = function () {
-    console.log("Hubo un error");
+    console.log("Hubo un error al conectar con la bd");
   };
 
   abrirConexion.onsuccess = function () {

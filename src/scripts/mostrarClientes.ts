@@ -34,7 +34,7 @@ export function obtenerClientes() {
             </td>
             <td class="px-6 py-4 whitespace-nowrap border-b border-gray-200">
               <a href="/editar-cliente/?id=${id}" class="text-sm text-teal-600 hover:text-teal-900 mr-5">Editar</a>
-              <a href="#" data-cliente="${id}" class="text-sm text-red-600 hover:text-red-900">Eliminar</a>
+              <a href="#" data-cliente="${id}" class="text-sm text-red-600 hover:text-red-900 eliminar">Eliminar</a>
             </td>
           </tr>
         `;

@@ -1,11 +1,11 @@
-import {
-  correoInput,
-  empresaInput,
-  nombreInput,
-  telefonoInput,
-} from "./selectores";
-import { imprimirAlerta } from "./imprimirAlerta";
-import { crearNuevoCliente } from "./nuevoCliente";
+// import {
+//   correoInput,
+//   empresaInput,
+//   nombreInput,
+//   telefonoInput,
+// } from "./selectores";
+// import { imprimirAlerta } from "./imprimirAlerta";
+// import { crearNuevoCliente } from "./nuevoCliente";
 
 export interface ICliente {
   nombre: string;
